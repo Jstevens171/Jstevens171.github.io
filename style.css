@@ -94,7 +94,7 @@ blockquote p:last-child {
 html, #container, .inner { background-color:transparent;}
 html {
   background:url(background.jpg) center center no-repeat fixed;
-  background-size:auto;
+  background-size:contain;
 }
 body {
   max-width:800px;
