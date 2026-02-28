@@ -37,19 +37,12 @@ body {
 }
 
 /* Full Bleed Background Setup */
-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Replace the URL below with your actual image path */
-    background-image: url('background.jpg'); 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -1;
+html, #container, .inner { background-color:transparent;}
+html, #container, .inner { background-color:black;}
+html {
+  background:url(background.jpg) center center no-repeat fixed;
+  background-size:contain;
+}
     /* Optional: Slight desaturation or darkening for legibility */
     filter: grayscale(20%) brightness(95%); 
 }
