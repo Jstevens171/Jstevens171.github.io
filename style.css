@@ -1,4 +1,107 @@
-/* Updated text color variable */
+/* tend.land - Fixed Homepage with Full Bleed Background */
+
+@import url('https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,400;0,700;1,400&display=swap');
+
+@font-face {
+    font-family: 'Ortica Angular';
+    src: url('fonts/OrticaAngular-Bold.woff2') format('woff2');
+    font-weight: bold;
+}
+
 :root {
-    --text-color: #ffffff; /* Changed from #000000 to #ffffff */
+    --text-color: #ffffff; /* Changed to white for better visibility */
+    --font-heading: 'Ortica Angular', serif;
+    --font-body: 'Inria Serif', serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+    background-color: #f0f0f0; /* Fallback color */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3vw;
+    font-family: var(--font-body);
+    color: var(--text-color);
+    position: relative;
+    background: url('background.jpg') no-repeat fixed center/cover;
+    /* Optional: Slight desaturation or darkening for legibility */
+    filter: grayscale(20%) brightness(95%); 
+}
+
+/* Reduced Logo Size */
+header {
+    width: 100%;
+    z-index: 10;
+}
+
+.brand {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 4vw, 2.5rem); 
+    line-height: 1;
+    letter-spacing: -0.01em;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* One-line Description */
+.description {
+    font-size: 1.1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-style: italic; /* Pairs well with Inria Serif */
+}
+
+/* Footer Navigation */
+footer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: flex-end;
+    font-size: 0.85rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--text-color);
+    z-index: 10;
+}
+
+.footer-item-right {
+    text-align: right;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+a:hover {
+    opacity: 0.5;
+}
+
+/* Responsive: Ensure the one-liner doesn't break the layout on mobile */
+@media (max-width: 768px) {
+    .description {
+        font-size: 0.9rem;
+        white-space: normal; /* Allow wrap on mobile to avoid cutting off text */
+    }
+    footer {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .footer-item-right {
+        text-align: left;
+    }
 }
